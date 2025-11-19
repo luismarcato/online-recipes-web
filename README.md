@@ -90,7 +90,7 @@ VITE_API_URL=http://localhost:3000
 ### 5. Execute o servidor de desenvolvimento
 
 ```bash
-VITE_API_URL=http://localhost:3000
+npm run dev
 ```
 
 ## 📜 Licença
