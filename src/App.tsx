@@ -2,6 +2,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import Index from "./pages/Index";
 import MainLayout from "./components/layout/MainLayout";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/Login";
+import NotFound from "./pages/NotFound";
+import { AuthProvider } from "./context/AuthContext";
+import { Toaster } from "./components/ui/sonner";
 
 function App() {
   const queryClient = new QueryClient();
@@ -10,14 +15,22 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<MainLayout />}>
-              <Route index element={<Navigate to="/receitas" replace />} />
-              <Route path="receitas" element={<Index />} />
-            </Route>
-          </Routes>
+          <AuthProvider>
+            <Routes>
+              <Route path="/" element={<MainLayout />}>
+                <Route index element={<Navigate to="/receitas" replace />} />
+                <Route path="receitas" element={<Index />} />
+              </Route>
+
+              <Route path="/registrar" element={<SignUp />} />
+              <Route path="/entrar" element={<SignIn />} />
+
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AuthProvider>
         </BrowserRouter>
       </QueryClientProvider>
+      <Toaster richColors />
     </>
   );
 }
