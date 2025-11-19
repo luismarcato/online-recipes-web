@@ -17,12 +17,14 @@ export const RecipeCard = ({
   difficulty,
   category,
 }: Recipe) => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   return (
     <Card className="group cursor-pointer p-0 gap-4 hover:shadow-md h-full w-full">
       <CardContent className="px-0">
         <div className="relative aspect-[4/3] overflow-hidden rounded-t-md">
           <img
-            src={`http://localhost:3000/uploads/recipes/${image}`}
+            src={`${API_URL}/uploads/recipes/${image}`}
             alt={title}
             className="w-full h-full object-cover group-hover:scale-110 transition-[var(--transition-smooth)]"
           />
