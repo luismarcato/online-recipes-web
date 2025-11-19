@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./context/AuthContext";
 import { Toaster } from "./components/ui/sonner";
 import About from "./pages/About";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import SubmitRecipe from "./pages/SubmitRecipe";
 
 function App() {
   const queryClient = new QueryClient();
@@ -22,6 +24,10 @@ function App() {
                 <Route index element={<Navigate to="/receitas" replace />} />
                 <Route path="receitas" element={<Index />} />
                 <Route path="sobre" element={<About />} />
+
+                <Route element={<ProtectedRoute />}>
+                  <Route path="nova-receita" element={<SubmitRecipe />} />
+                </Route>
               </Route>
 
               <Route path="/registrar" element={<SignUp />} />
