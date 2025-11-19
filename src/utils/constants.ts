@@ -111,3 +111,22 @@ export const difficultiesMap = {
   HARD: "Difícil",
 };
 
+export const preparationTimes = [
+  {
+    value: "ALL",
+    label: "Qualquer",
+  },
+  {
+    value: "UNDER_30",
+    label: "< 30 min",
+  },
+  {
+    value: "BETWEEN_30_AND_60",
+    label: "30-60 min",
+  },
+  {
+    value: "OVER_60",
+    label: "> 60 min",
+  },
+];
+
