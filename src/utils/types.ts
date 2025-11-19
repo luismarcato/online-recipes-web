@@ -8,3 +8,14 @@ export interface RecipeBase {
 }
 
 export interface Recipe extends RecipeBase {}
+
+export interface RecipeDetailed extends RecipeBase {
+  servings: string;
+  description: string;
+  ingredients: string[];
+  instructions: string[];
+}
+
+export interface RecipeFormValues extends Omit<RecipeDetailed, "id" | "image"> {
+  image: File | null;
+}
