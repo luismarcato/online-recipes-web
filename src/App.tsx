@@ -7,6 +7,7 @@ import SignIn from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./context/AuthContext";
 import { Toaster } from "./components/ui/sonner";
+import About from "./pages/About";
 
 function App() {
   const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ function App() {
               <Route path="/" element={<MainLayout />}>
                 <Route index element={<Navigate to="/receitas" replace />} />
                 <Route path="receitas" element={<Index />} />
+                <Route path="sobre" element={<About />} />
               </Route>
 
               <Route path="/registrar" element={<SignUp />} />
