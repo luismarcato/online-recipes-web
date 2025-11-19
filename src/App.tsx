@@ -10,6 +10,7 @@ import { Toaster } from "./components/ui/sonner";
 import About from "./pages/About";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import SubmitRecipe from "./pages/SubmitRecipe";
+import Categories from "./pages/Categories";
 
 function App() {
   const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ function App() {
               <Route path="/" element={<MainLayout />}>
                 <Route index element={<Navigate to="/receitas" replace />} />
                 <Route path="receitas" element={<Index />} />
+                <Route path="categorias" element={<Categories />} />
                 <Route path="sobre" element={<About />} />
 
                 <Route element={<ProtectedRoute />}>
